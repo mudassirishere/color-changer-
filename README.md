@@ -6,7 +6,7 @@ A simple and visually appealing web app that generates a **random gradient backg
 
 Check out the live version here:  
 👉 [Live Preview] 
-
+https://mudassirishere.github.io/color-changer-/
 
 
 
