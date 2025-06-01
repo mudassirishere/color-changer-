@@ -5,7 +5,10 @@ A simple and visually appealing web app that generates a **random gradient backg
 ## 🚀 Live Demo
 
 Check out the live version here:  
-👉 [Live Preview](https://shahbaz-sheikh.github.io/Generate-Color/)  
+👉 [Live Preview] 
+
+
+
 
 ## 🛠️ Features
 
