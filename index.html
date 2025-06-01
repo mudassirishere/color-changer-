@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fancy Background Generator</title>
+  <style>
+    body {
+      text-align: center;
+      padding-top: 100px;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.8s ease;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      background-color: #222;
+      color: white;
+      cursor: pointer;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #colorCode {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #333;
+    }
+
+    #copied {
+      color: green;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="changeBackground()">Generate Gradient</button>
+  <div id="colorCode" onclick="copyToClipboard()"></div>
+  <div id="copied">Color code copied!</div>
+
+  <script>
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function changeBackground() {
+      const color1 = getRandomColor();
+      const color2 = getRandomColor();
+      const gradient = `linear-gradient(45deg, ${color1}, ${color2})`;
+      document.body.style.background = gradient;
+      document.getElementById('colorCode').innerText = `Gradient: ${color1} → ${color2}`;
+      document.getElementById('copied').style.display = 'none';
+    }
+
+    function copyToClipboard() {
+      const text = document.getElementById('colorCode').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById('copied').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('copied').style.display = 'none';
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
